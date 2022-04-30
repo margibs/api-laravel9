@@ -2,10 +2,11 @@
 
 namespace App\Listeners;
 
+use App\Notifications\WelcomeEmailNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class UserRegistraterEventListener
+class UserRegisterEventListener
 {
     /**
      * Create the event listener.
@@ -25,6 +26,6 @@ class UserRegistraterEventListener
      */
     public function handle($event)
     {
-        //
+        $event->user->notify(new WelcomeEmailNotification());
     }
 }
