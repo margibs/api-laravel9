@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegistrationController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ use App\Http\Controllers\Auth\RegistrationController;
 //     return $request->user();
 // });
 
-Route::post('register', [RegistrationController::class, 'store'])->name('register');
+Route::post('register', [RegistrationController::class, 'store'])->middleware('auth:sanctum')->name('register');
+Route::post('login', [LoginController::class, 'login'])->name('login');
