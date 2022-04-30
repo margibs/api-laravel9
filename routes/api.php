@@ -20,5 +20,6 @@ use App\Http\Controllers\Auth\LoginController;
 //     return $request->user();
 // });
 
-Route::post('register', [RegistrationController::class, 'store'])->middleware('auth:sanctum')->name('register');
+// Route::post('register', [RegistrationController::class, 'store'])->middleware('auth:sanctum')->name('register');
+Route::post('register', [RegistrationController::class, 'store'])->name('register');
 Route::post('login', [LoginController::class, 'login'])->name('login');
