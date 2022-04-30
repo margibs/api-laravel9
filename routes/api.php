@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ use App\Http\Controllers\Auth\LoginController;
 // Route::post('register', [RegistrationController::class, 'store'])->middleware('auth:sanctum')->name('register');
 Route::post('register', [RegistrationController::class, 'store'])->name('register');
 Route::post('login', [LoginController::class, 'login'])->name('login');
+
+Route::post('customer', [CustomerController::class, 'store'])->name('customer.store');
