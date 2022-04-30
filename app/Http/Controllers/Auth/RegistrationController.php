@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Services\UserService;
+use App\Http\Resources\UserResource;
 
 class RegistrationController extends Controller
 {
@@ -15,7 +15,7 @@ class RegistrationController extends Controller
     {
         $user = $userService->store($request->validated());
 
-        return $user;
+        return new UserResource($user);
     }
 
 }
